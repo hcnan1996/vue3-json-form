@@ -1,6 +1,6 @@
 export const schema = {
   description: 'A simple form example.',
-  type: 'string',
+  type: 'object',
   required: ['firstName', 'lastName'],
   properties: {
     firstName: {
@@ -8,7 +8,7 @@ export const schema = {
       default: 'Chuck',
     },
     lastName: {
-      type: 'string',
+      type: 'number',
     },
     telephone: {
       type: 'string',

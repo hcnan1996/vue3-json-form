@@ -1,6 +1,7 @@
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref, computed } from 'vue'
 import SchemaForm from './SchemaForm'
 import { schema } from './demo'
+import { resolveSchema } from './utils'
 export default defineComponent({
   name: 'Index',
   setup() {
@@ -16,6 +17,7 @@ export default defineComponent({
             schema={schema}
             value={val.value}
             onChange={handleChange}
+            rootSchema={schema}
           ></SchemaForm>
         </div>
       )

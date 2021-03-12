@@ -1,4 +1,4 @@
-import { PropType } from 'vue'
+import { PropType, defineComponent } from 'vue'
 export enum SchemaTypes {
   'NUMBER' = 'number',
   'INTEGER' = 'integer',
@@ -52,12 +52,23 @@ export const CommonPropsDefine = {
     type: Object as PropType<Schema>,
     required: true,
   },
+  rootSchema: {
+    type: Object as PropType<Schema>,
+    required: true,
+  },
   onChange: {
     type: Function as PropType<(value: any) => void>,
     required: true,
   },
 } as const
 
-export interface UISchemaNest {
-  // [property: string]: UISchema
-}
+// export interface UISchemaNest {
+//   // [property: string]: UISchema
+// }
+
+// 定义组件类型的写法
+const TypeHelpComponet = defineComponent({
+  props: CommonPropsDefine,
+})
+
+export type SchemaItemFileDeFine = typeof TypeHelpComponet

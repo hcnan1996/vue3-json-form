@@ -1,15 +1,17 @@
-import { defineComponent } from 'vue'
+import { computed, defineComponent } from 'vue'
 import { SchemaTypes, CommonPropsDefine } from './type'
-import NumberFileld from './filelds/numberFileld.vue'
+import NumberFileld from './filelds/NumberFileld'
 import StringFileld from './filelds/StringFileld'
+import ObjectFileld from './filelds/ObjectFiled'
+import { resolveSchema } from './utils'
 
 export default defineComponent({
   name: 'JsonSchemaFormItem',
   props: CommonPropsDefine,
   setup(props) {
     return () => {
-      console.log(props, 'ooooooo')
-      const { schema } = props
+      const { schema, rootSchema, value } = props
+      // console.log(rschema.value)
       const type = schema.type
       let Componet: any
       switch (type) {
@@ -19,6 +21,11 @@ export default defineComponent({
         }
         case SchemaTypes.NUMBER: {
           Componet = NumberFileld
+          break
+        }
+        case SchemaTypes.OBJECT: {
+          console.log(type, 'pppp')
+          Componet = ObjectFileld
           break
         }
         default: {
